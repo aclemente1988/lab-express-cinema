@@ -1,8 +1,14 @@
-<h1>Test</h1>
+<h2>Ironhack Cinema</h2>
+<p>Click on a movie to show additional information and showtimes schedules!</p>
 
-<ul>
-    {{#each objectMovies}}
-        <li>{{title}}</li>
-    {{/each}}
+    <div>
 
-</ul>
+        {{#each objectMovies}}
+        <h4>{{title}}</h4>
+        <img src="{{image}}"> 
+        <a href="/movies/{{_id}}">See more</a>
+        {{/each}}
+
+    </div>
+   
+

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Movie = require('../models/Movie.model');
+console.log(Movie)
 
 
 const MONGO_URI = 'mongodb://localhost/lab-express-cinema'
@@ -7,6 +8,7 @@ const MONGO_URI = 'mongodb://localhost/lab-express-cinema'
 mongoose
     .connect(MONGO_URI)
     .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
+    .then(()=> Movie.create(movies))
     .catch((err) => console.error("Error connecting to mongo: ", err))
 
 const movies = [
@@ -94,8 +96,7 @@ const movies = [
 
 mongoose.connect('mongodb://localhost/lab-express-cinema');
 
-Movie
-    .create(movies)
+Movie.create(movies)
     .then(moviesFromDB => {
         console.log(`Created ${moviesFromDB.length} movies`);
         mongoose.connection.close();
